@@ -37,4 +37,7 @@ const converterJson = () => {
     const diasJson = document.querySelector('input').value;
     diasAtivos = getDiasAtivos(convertDiasToArray(diasJson))
     setSelectDias(dias);
+
+    const selectHorarios = document.querySelector('select#horarios');
+    selectHorarios.innerHTML = "";
 }
