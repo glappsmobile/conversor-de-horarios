@@ -1,9 +1,11 @@
 const opcaoDefault = (label) => `<option value="default">${label}</option>`;
 
-const setSelectDias = (dias) => {
+const setSelectDias = () => {
+    //A PARTIR DOS DADOS TRATADOS, CRIA OPTIONS DENTRO DO SELECT #dias
+    //COM TODOS OS DIAS ATIVOS
     const selectDias = document.querySelector('select#dias');
     selectDias.innerHTML = opcaoDefault("Selecione o dia...")
-    dias.forEach((dia, index) => {
+    diasAtivos.forEach((dia, index) => {
         selectDias.innerHTML += `
         <option value="${index}">${dia.dia}</option>
     `;
@@ -11,6 +13,7 @@ const setSelectDias = (dias) => {
 }
 
 const setSelectHorarios = (index) => {
+    //SE O INDEX FOR 0 OU MAIOR, ACESSA O ARRAY diasAtivos[index].horarios E EXIBE A INFO 
     const selectHorarios = document.querySelector('select#horarios');
 
     if (index === "default") {
@@ -28,4 +31,4 @@ const setSelectHorarios = (index) => {
     } )
 }
 
-setSelectDias(diasAtivos);
+setSelectDias();

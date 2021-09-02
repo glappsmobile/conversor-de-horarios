@@ -6,29 +6,24 @@
     <link rel="stylesheet" href="reset.css" />
     <link rel="stylesheet" href="style.css" />
 
-
     <title>Conversor</title>
   </head>
   <body>
-    <noscript>Você precisa habilitar o JavaScript para rodar esse site.</noscript>
-    <div class="root">
-      <ul class="container-selects">
-        <li>
-          <span> Dias: </span>
-          <select id="dias" onchange="setSelectHorarios(value)">
-          </select>
-        </li>
+    <ul class="container-selects">
+      <li>
+        <span> Dias: </span>
+        <select id="dias" onchange="setSelectHorarios(value)">
+        </select>
+      </li>
 
-        <li>
-          <span>Horários: </span>
-          <select id="horarios">
-          </select>
-        </li>
-      </ul>
-    </div>
+      <li>
+        <span>Horários: </span>
+        <select id="horarios">
+        </select>
+      </li>
+    </ul>
 
     <script src="conversor.js"></script>
     <script src="setSelectors.js"></script>
-
   </body>
 </html>
