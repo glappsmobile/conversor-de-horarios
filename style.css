@@ -1,0 +1,14 @@
+.container-selects {
+    display: grid;
+    padding: 10px;
+}
+
+.container-selects li{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+}
+
+.container-selects li span{
+    margin-bottom: 5px;
+}
