@@ -32,4 +32,14 @@ const getDiasAtivos = (dias) => {
 }).filter(dia => dia)
 }
 
+const converterJson = () => {
+    //O ARRAY FINAL COM DADOS TRATADOS, PRONTOS PARA SEREM INSERIDOS NO SELECT
+    const diasJson = document.querySelector('input').value;
+    diasAtivos = getDiasAtivos(convertDiasToArray(diasJson))
+    setSelectDias(dias);
 
+    const selectHorarios = document.querySelector('select#horarios');
+    selectHorarios.innerHTML = "";
+}
+
+converterJson();
