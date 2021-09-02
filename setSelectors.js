@@ -1,5 +1,5 @@
 const opcaoDefault = (label) => `<option value="default">${label}</option>`;
-
+let diasAtivos;
 const setSelectDias = () => {
     //A PARTIR DOS DADOS TRATADOS, CRIA OPTIONS DENTRO DO SELECT #dias
     //COM TODOS OS DIAS ATIVOS
@@ -31,4 +31,9 @@ const setSelectHorarios = (index) => {
     } )
 }
 
-setSelectDias();
+
+const converterJson = () => {
+    //O ARRAY FINAL COM DADOS TRATADOS, PRONTOS PARA SEREM INSERIDOS NO SELECT
+    diasAtivos = getDiasAtivos(convertDiasToArray(diasJson))
+    setSelectDias(dias);
+}
