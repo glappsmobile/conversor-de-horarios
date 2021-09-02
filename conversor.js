@@ -44,9 +44,10 @@ const updateInfo = () => {
             diasAtivos = getDiasAtivos(convertDiasToArray(diasJson));
 
             //ADICIONA AS OPÇÕES LÁ NO SELECT DOS DIAS
-            setSelectDias();
+            setSelectDias(diasAtivos);
         });
 }
 
 updateInfo();
+
 
