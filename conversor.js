@@ -22,7 +22,7 @@ const getHorariosAtivos = (horarios) => {
 }
 
 const getDiasAtivos = (dias) => {
-    //FILTRA APENAS OS DIAS CO=M ATIVO = "1" E COM PELO MENOS UM HORARIO COM VAGAS MAIOR QUE 0
+    //FILTRA APENAS OS DIAS C=M ATIVO = "1" E COM PELO MENOS UM HORARIO COM VAGAS MAIOR QUE 0
     return dias.filter(dia => dia.ativo === "1").map(dia => {
     const horariosArray = getHorariosAtivos(dia.horarios);
     if (horariosArray.length > 0) {
@@ -32,14 +32,21 @@ const getDiasAtivos = (dias) => {
 }).filter(dia => dia)
 }
 
-const converterJson = () => {
-    //O ARRAY FINAL COM DADOS TRATADOS, PRONTOS PARA SEREM INSERIDOS NO SELECT
-    const diasJson = document.querySelector('input').value;
-    diasAtivos = getDiasAtivos(convertDiasToArray(diasJson))
-    setSelectDias(dias);
+const updateInfo = () => {
+    //PEGA O JSON QUE VEM DO PHP
+    fetch('/server.php')
+        .then((response) => response.text())
+        .then((encodedJson) => {
+            //O ARRAY FINAL COM DADOS TRATADOS, PRONTOS PARA SEREM INSERIDOS NO SELECT
+            const diasJson = JSON.parse(encodedJson);
 
-    const selectHorarios = document.querySelector('select#horarios');
-    selectHorarios.innerHTML = "";
+            //FILTRA APENAS OS DIAS ATIVOS EM ARRAY PRA FICAR MAIS LEGÍVEL
+            diasAtivos = getDiasAtivos(convertDiasToArray(diasJson));
+
+            //ADICIONA AS OPÇÕES LÁ NO SELECT DOS DIAS
+            setSelectDias();
+        });
 }
 
-converterJson();
+updateInfo();
+
