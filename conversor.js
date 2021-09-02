@@ -34,10 +34,12 @@ const getDiasAtivos = (dias) => {
 
 const updateInfo = () => {
     //PEGA O JSON QUE VEM DO PHP
-    fetch('/server.php')
+    const caminhoDoPHP = '/server.php';
+
+    fetch(caminhoDoPHP)
         .then((response) => response.text())
         .then((encodedJson) => {
-            //O ARRAY FINAL COM DADOS TRATADOS, PRONTOS PARA SEREM INSERIDOS NO SELECT
+            //encodedJson É O echo QUE O PHP DEU, VAI SER decodado E INSERIDO NO diasJson
             const diasJson = JSON.parse(encodedJson);
 
             //FILTRA APENAS OS DIAS ATIVOS EM ARRAY PRA FICAR MAIS LEGÍVEL
@@ -49,5 +51,3 @@ const updateInfo = () => {
 }
 
 updateInfo();
-
-
