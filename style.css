@@ -1,5 +1,6 @@
 .container-selects {
-    display: grid;
+    display: flex;
+    flex-direction: column;
     padding: 10px;
 }
 
@@ -11,8 +12,4 @@
 
 .container-select span {
     margin-bottom: 5px;
-}
-
-input,button {
-    margin-bottom: 10px;
 }
